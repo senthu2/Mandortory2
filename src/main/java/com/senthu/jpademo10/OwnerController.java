@@ -4,10 +4,7 @@ import com.senthu.jpademo10.model.Owner;
 import com.senthu.jpademo10.service.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -43,4 +40,11 @@ public class OwnerController {
         ownerService.save(owner);
         return "redirect:/owners/index";
     }
+    @RequestMapping("/delete/{id}")
+    public String deleteOwner(@PathVariable(value = "id") long id){
+        System.out.println("slet Owner");
+        ownerService.deleteById(id);
+        return "redirect:/owners/index";
+    }
+
 }
