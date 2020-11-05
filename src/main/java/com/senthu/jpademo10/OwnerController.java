@@ -27,7 +27,7 @@ public class OwnerController {
         return "owners/index";
     }
 
-    @GetMapping("")
+    @GetMapping("/createOwner")
     public String createOwner(Model model){
         System.out.println("vis owner side");
         Owner owner = new Owner();
